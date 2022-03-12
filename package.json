@@ -1,0 +1,23 @@
+{
+  "name": "lms-hakka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "bash -c \"make build\"",
+    "localstack:up": "LOCALDIR=`pwd` docker-compose up --force-recreate",
+    "deploy:local": "serverless deploy --stage local",
+    "start": "npm run build && npm run deploy:local && npm run watch",
+    "watch": "nodemon --watch src -e go --exec npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15",
+    "serverless": "^2.68.0",
+    "serverless-localstack": "^0.4.35"
+  }
+}
